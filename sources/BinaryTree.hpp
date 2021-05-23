@@ -3,22 +3,34 @@
 #include "PreOrederIterator.hpp"
 #include "InOrderIterator.hpp"
 #include "PostOrderIterator.hpp"
+
+using namespace std;
+
 namespace ariel {
     template<typename T>
     class BinaryTree {
-    private:
-        
-    public:
-        //class BinaryTree//
         Node<T> *root;
+
+    public:
+        
         /*Default constructor.*/
          BinaryTree(){root = new Node<T>();}
         /*Destructor.*/
-       // ~BinaryTree(){delete[] root;} 
+        ~BinaryTree(){root->~Node();} 
         /*Adds left son to the first argument. If one already exist, replaces it.*/
-        BinaryTree& add_left(T father, T son){return *this;}
+        BinaryTree& add_left(T father, T son){
+            // Node<T> f(father);
+            // root = &f;
+            // Node<T> s(son);
+            // root->add_leftN(s);
+            return *this;}
         /*Adds right son to the first argument. If one already exist, replaces it.*/
-        BinaryTree& add_right(T father, T son){return *this;}
+        BinaryTree& add_right(T father, T son){
+            // Node<T> f(father);
+            // root = &f;
+            // Node<T> s(son);
+            // root->add_rightN(s);
+            return *this;}
 
         PreOrederIterator<T> begin_preorder() {
             return PreOrederIterator<T>();
@@ -45,15 +57,15 @@ namespace ariel {
         }
 
         BinaryTree<T>& add_root(const T& t){
-            //delete[] root;
+            root->~Node();
             root = new Node<T>(t);
             return *this;}
         
         InOrderIterator<T> begin(){return InOrderIterator<T>(root);}
         InOrderIterator<T> end(){return InOrderIterator<T>();}
-      
+        Node<T>* getRoot(){return root;}
         /*Prints this tree.*/
         friend ostream &operator<<(ostream &os, const BinaryTree &tree) { return os; }
-
+        
     };
 }

@@ -36,6 +36,6 @@ namespace ariel{
                     return current != rhs.current;
                 }
         
-                friend ostream &operator<<(ostream &os, const PostOrderIterator &p) { return os; }
+                //friend ostream &operator<<(ostream &os, const PostOrderIterator &p) { return os; }
         };
 }

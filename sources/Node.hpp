@@ -7,11 +7,11 @@ namespace ariel{
             Node *root;
             Node *right;
             Node *left;
-
-            Node(){}
+        
+            Node(){right = left = nullptr;}
             Node(const T &data) : data(data) {}
-            void add_left (const Node &father, const Node &){}
-            void add_right (const Node &father, const Node &){}
+            void add_leftN (Node &other){left = &other;}
+            void add_rightN (Node &other){right = &other;}
             
         };
 }
